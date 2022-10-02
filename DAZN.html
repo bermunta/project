@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        background-image: url(../images/image.png);
+        background-repeat: no-repeat;
+      }
+
+      ul {
+        background-color: white;
+        list-style-type: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: none;
+      }
+
+      li {
+        transform: translatex(1300px);
+        float: left;
+      }
+
+      li a {
+        display: block;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+        padding: 20px;
+        transition: 1s;
+      }
+
+      li a:hover {
+        color: aqua;
+      }
+
+      .text {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        color: aqua;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .course {
+        transform: translateY(1000px);
+      }
+
+      .course h1 {
+        text-align: center;
+        font-size: 50px;
+        color: aqua;
+        margin-top: -100px;
+      }
+
+      .battles img {
+        float: left;
+        width: 450px;
+        height: 300px;
+        margin: 40px;
+        transform: translate(150px, -25px);
+      }
+
+      .row li {
+        text-align: center;
+      }
+
+      .button {
+        width: 180px;
+        height: 40px;
+        background-color: rgb(135, 248, 248);
+        color: black;
+        border: none;
+        transition: 0.5s;
+        border-radius: 30px;
+        font-size: 20px;
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      .button a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .button:hover {
+        background-color: aqua;
+        color: white;
+        width: 200px;
+      }
+
+      .stars {
+        transform: translateY(900px);
+      }
+
+      .men {
+        float: left;
+        margin: 50px;
+        transform: translatex(20px);
+        transition: 0.5s;
+      }
+
+      .men:hover {
+        color: aqua;
+      }
+
+      .stars img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .register {
+        width: 500px;
+        height: 600px;
+        transform: translate(650px, 900px);
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        height: 50px;
+        font-size: 20px;
+        background-color: #f1f1f1;
+      }
+
+      .btn {
+        color: white;
+        background-color: blue;
+        width: 250px;
+        height: 50px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transform: translateX(100px);
+        font-size: 20px;
+        transition: 1s;
+      }
+
+      .btn:hover {
+        border-radius: 25px;
+        color: black;
+        background-color: aqua;
+      }
+
+      .link {
+        color: blue;
+        text-decoration: none;
+      }
+
+      .link:hover {
+        text-decoration: underline;
+      }
+
+      .about {
+        background: linear-gradient(120deg, #2980b9, #8e44ad);
+      }
+
+      .about p {
+        background-image: linear-gradient(120deg, #2980b9, #8e44ad);
+        transform: translate(0px, 1500px);
+        font-size: 25px;
+        position: absolute;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DAZN Boxing</title>
+  </head>
+  <body>
+    <br /><br />
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#news">NEWS</a></li>
+      <li><a href="#stars">STARS</a></li>
+      <li><a href="#register">REGISATER</a></li>
+      <li><a href="#about us">ABOUT US</a></li>
+    </ul>
+
+    <div class="text">
+      <h1>BOXING ON DAZN</h1>
+      <h3>Anytime, anywhere, on all your favourite devices</h3>
+
+      <button type="button" class="button">
+        <a href="#register">REGISTER</a>
+      </button>
+    </div>
+
+    <section class="course" id="news">
+      <h1>Planned Battles</h1>
+
+      <div class="row">
+        <div class="battles">
+          <img src="../images/bd15f5148357691.62d46a7ba8d01.jpg" />
+        </div>
+
+        <div class="battles">
+          <img src="../images/wilder vs ruiz.jpg" />
+        </div>
+
+        <div class="battles">
+          <img src="../images/djosua vs fury.jpg" />
+        </div>
+      </div>
+    </section>
+
+    <div class="stars" id="stars">
+      <div class="men">
+        <h1>Teofimo Lopez</h1>
+        <img src="../My Projects/images/teofimo lopez.jpg" />
+      </div>
+      <div class="men">
+        <h1>Gervonta davis</h1>
+        <img src="../My Projects/images/davis.jpg" />
+      </div>
+      <div class="men">
+        <h1>Canelo Alvarez</h1>
+        <img src="../My Projects/images/canelo.jpg" />
+      </div>
+      <div class="men">
+        <h1>Deontay Wilder</h1>
+        <img src="../My Projects/images/Deontay Wilder.jpg" />
+      </div>
+      <div class="men">
+        <h1>Tyson Fury</h1>
+        <img src="../My Projects/images/fury.jpg" />
+      </div>
+      <div class="men">
+        <h1>Antony Joshua</h1>
+        <img src="../My Projects/images/joshua.jpg" />
+      </div>
+    </div>
+
+    <div class="register" id="register">
+      <h1 style="text-align: center">Register</h1>
+
+      <p>Please fill this form to create an account</p>
+
+      <label for="text"><b>Email</b></label>
+      <input
+        type="text"
+        class="emaili"
+        placeholder="Enter email"
+        id="email"
+        required
+      />
+
+      <label for="text"><b>Password</b></label>
+      <input
+        type="text"
+        class="paroli"
+        placeholder="Enter password"
+        id="password"
+        required
+      />
+
+      <label for="text"><b>Repeat password</b></label>
+      <input
+        type="text"
+        class="parolis gameoreba"
+        placeholder="Repeat password"
+        id="repeat password"
+        required
+      />
+
+      <p>
+        By creating an account you agree to our
+        <a href="#" class="link">Terms & Privacy.</a>
+      </p>
+
+      <button type="button" class="btn">Register</button>
+    </div>
+
+    <section class="about" id="about us">
+      <p>
+        DAZN (/dəˈzoʊn/ "da zone") is a global sports entertainment platform.
+        Different to traditional linear and satellite broadcasting, DAZN is an
+        over-the-top (OTT) streaming service meaning that it is delivered
+        directly to viewers via the internet. The DAZN service streams live and
+        on-demand sports content in more than 200 countries and territories.
+      </p>
+    </section>
+  </body>
+</html>
