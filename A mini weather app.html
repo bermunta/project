@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.container {
+    padding-inline: 15px;
+    
+}
+
+.card-weather {
+    width: 400px;
+    padding: 15px;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 15px;
+    background-size: 80px;
+    box-shadow: 10px 10px 10px #0000004a;
+}
+
+.card-weather > div {
+    display: flex;
+    justify-content: space-between;
+}
+</style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+    <div class="card-weather">
+        <h3>Current location</h3>
+        <h2>Tbilisi</h2>
+        <div>
+            <span class="comment"></span>
+            <span class="temp">
+                <span class="temp-number"></span>
+                <span>C</span>
+            </span>
+        </div>
+    </div>
+
+<script>
+    const tempNumber = document.querySelector('.temp-number');
+    const comment = document.querySelector('.comment');
+    const cardWeather = document.querySelector('.card-weather');
+
+    const getWeather = async () => {
+        const { currentConditions } = await fetch('https://weatherdbi.herokuapp.com/data/weather/tbilisi').then(_ => _.json());
+        tempNumber.innerText = currentConditions.temp.c;
+        comment.innerText = currentConditions.comment;
+        cardWeather.style.backgroundImage = `url(${currentConditions.iconURL})`;
+    }
+
+getWeather();
+</script>
+</body>
+</html>
+
+
+<!--
+
+JSON
+
+1)ჯეისონის მასივიდან ერთერთი ელემენტის გამოტანა:
+<div id="demo"></div>
+
+<script>
+    const name = '["home", "house", "apartament"]';
+    const saxlebi = JSON.parse(name);
+    document.getElementById('demo').innerHTML = saxlebi[1];
+</script>
+
+
+
+
+
+
+2)ჯეისონში თარიღის დაწერა მხოლოდ სტრინგად 
+შეიძლება და ამ მაგალითით სტრინგი გადაგვყავს თარიღად:
+<p id="dm"></p>
+
+<script>
+    const name = '{"name":"bacho", "lastname":"sulikashvili","birth":"2002-07-05"}'
+    const tt = JSON.parse(name)
+    tt.date = new Date(tt.birth)
+    document.getElementById('dm').innerHTML = tt.name + tt.lastname + ", " + tt.date;  
+</script>
+
+
+
+
+
+
+3)ჯეისონში ობიექტის და მასივის დაბეჭდვა:
+1)მასივი
+<p id="demo"></p>
+
+<script>
+const arr = ["John", "Peter", "Sally", "Jane"];
+const myJSON = JSON.stringify(arr);
+document.getElementById("demo").innerHTML = myJSON;
+</script>
+
+
+2)ობიექტი
+<p id="demo"></p>
+
+<script>
+const obj = {name: "John", age: 30, city: "New York"};
+const myJSON = JSON.stringify(obj);
+document.getElementById("demo").innerHTML = myJSON;
+</script>
+
+
+
+
+
+4)ჯეისონში ობიექტის და მასივის რომელიმე ელემენტის გამოტანა:
+1)მასივი
+<p id="demo"></p>
+
+<script>
+const myJSON = '["Ford", "BMW", "Fiat"]';
+const myArray = JSON.parse(myJSON);
+document.getElementById("demo").innerHTML = myArray[0];
+</script>
+
+
+
+
+2)ობიექტი
+<p id="demo"></p>
+
+<script>
+const myObj = {"name":"John", "age":30, "car":null};
+document.getElementById("demo").innerHTML = myObj.name;
+</script>
+
+
+
+
+
+
+5)ჯეისონში ჩამოსაშლელი სიის გამოტანა:
+<p id="demo"></p>
+
+<script>
+const dbParam = JSON.stringify({table:"customers",limit:20});
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+  let text = "<select>"
+  for (let x in myObj) {
+    text += "<option>" + myObj[x].name + "</option>";
+  }
+  text += "</select>"
+  document.getElementById("demo").innerHTML = text;
+}
+xmlhttp.open("POST", "json_demo_html_table.php");
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+</script>
+
+
+
+
+
+
+
+6)ჯეისონში ჩამოსაშლელი სიის და ამ სიასთან ერთად ცხრილის გამოტანა:
+<select id="myselect" onchange="change_myselect(this.value)">
+  <option value="">Choose an option:</option>
+  <option value="customers">Customers</option>
+  <option value="products">Products</option>
+  <option value="suppliers">Suppliers</option>
+</select>
+
+<p id="demo"></p>
+
+<script>
+function change_myselect(sel) {
+  const dbParam = JSON.stringify({table:sel,limit:20});
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function() {
+    myObj = JSON.parse(this.responseText);
+    text = "<table border='1'>"
+    for (x in myObj) {
+      text += "<tr><td>" + myObj[x].name + "</td></tr>";
+    }
+    text += "</table>"    
+    document.getElementById("demo").innerHTML = text;
+  }
+  xmlhttp.open("POST", "json_demo_html_table.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("x=" + dbParam);
+}
+</script>
+-->

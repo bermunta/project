@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #373737;
+    }
+
+    h3 {
+      position: relative;
+      font-size: 20px;
+      color: #f9f9f9;
+      letter-spacing: 1px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    #form {
+      position: relative;
+    }
+
+    #form #email {
+      width: 300px;
+      background: #292929;
+      outline: none;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      color: #fff;
+      font-style: 18px;
+    }
+
+    #form #inputBox {
+      position: relative;
+    }
+
+    #text {
+      display: block;
+      color: #000;
+      font-weight: 300;
+      font-style: italic;
+      padding: 5px;
+    }
+
+    #form.invalid .inputBox:before {
+      content: '';
+      position: absolute;
+      right: 12px;
+      top: 9px;
+      width: 24px;
+      height: 24px;
+      background: url(invaild1.png);
+      background-size: cover;
+      z-index: 1000;
+    }
+
+    #form.valid .inputBox:before {
+      content: '';
+      position: absolute;
+      right: 12px;
+      top: 9px;
+      width: 24px;
+      height: 24px;
+      background: url(valid1.png);
+      background-size: cover;
+      z-index: 1000;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+  <h3>Email</h3>
+  <form action="#" id="form">
+    <div id="inputbox">
+      <input type="text" name="" id="email" 
+      placeholder="enter email address" onkeydown="validation ()">
+      <span id="text"></span>
+    </div>
+  </form>
+  </div>
+
+  <script>
+    function validation () {
+      var form = document.getElementById("form");
+      var email = document.getElementById("email").value;
+      var text = document.getElementById("text");
+      var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (email.match(pattern)) {
+        form.classList.add("valid");
+        form.classList.remove("invalid");
+        text.innerHTML = "Your Email Address in Valid";
+        text.style.color = "#00ff00";
+      }
+      else {
+        form.classList.remove("valid");
+        form.classList.add("invalid");
+        text.innerHTML = "Please Enter Valid Email Address";
+        text.style.color = "#ff0000";
+      }
+
+      if (email == "") {
+        form.classList.remove("valid");
+        form.classList.remove("invalid");
+        text.innerHTML = "";
+        text.style.color = "#00ff00";
+      }
+    }
+  </script>
+</body>
+</html>
